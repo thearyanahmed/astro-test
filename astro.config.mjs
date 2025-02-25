@@ -4,7 +4,7 @@ import node from '@astrojs/node';
 export default defineConfig({
     output: 'server',
     adapter: node({
-        mode: process.env.NODE_ENV === 'production' ? 'production' : 'development' // Explicitly set the mode
+        mode: 'standalone'
     }),
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     vite: {
