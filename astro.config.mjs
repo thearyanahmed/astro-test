@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
-
+import { onRequest } from './src/middleware/health'; // Import the middleware
 export default defineConfig({
     output: 'server',
     adapter: node({
@@ -12,5 +12,6 @@ export default defineConfig({
             noExternal: ['@astrojs-ssr-virtual-entry'],
             mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
         }
-    }
+    },
+    middleware: [onRequest] // Add the middleware to the configuration
 });
